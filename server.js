@@ -1,7 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const app = express();
+const users = require('./routes/api/users');
+const profile = require('./routes/api/profile');
+const posts = require('./routes/api/posts');
+
+const app = express(); //initialize the app
 
 // DB Config
 const db = require('./config/keys').mongoURI;
@@ -14,6 +18,11 @@ mongoose
 
 app.get('/', (req,res) => res.send('Hello World'));
 // '/' is the homepage, send a request when we are at the homepage and respond by sending Hello
+
+//Use Routes
+app.use('/api/users', users);
+app.use('/api/profile', profile);
+app.use('/api/posts', posts);
 
 const port = process.env.PORT || 5000;
 // to deploy to heroku process.env.port, locally is port 5000

@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const users = require('./routes/api/users');
+const users = require('./routes/api/users'); //point url to api files
 const profile = require('./routes/api/profile');
 const posts = require('./routes/api/posts');
 
@@ -19,7 +19,7 @@ mongoose
 app.get('/', (req,res) => res.send('Hello World'));
 // '/' is the homepage, send a request when we are at the homepage and respond by sending Hello
 
-//Use Routes
+// Use Routes
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/posts', posts);

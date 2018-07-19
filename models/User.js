@@ -26,4 +26,5 @@ const UserSchema = new Schema({
 
 });
 
+// To use schema, we need to convert UserSchema into a Model, we do so by passing it into mongoose.model(modelName, schema)
 module.exports = User = mongoose.model('users', UserSchema);
